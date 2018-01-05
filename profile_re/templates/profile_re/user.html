@@ -5,7 +5,7 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row header">
         <div class="col-md-3">
             <img class="avatar" src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}http://www.geeksinc.net/wp-content/uploads/2016/05/home-user-icon-1.png{% endif %}">
         </div>
@@ -17,13 +17,13 @@
             <img class="logo" src="{% static 'theme_first/img/logo.png' %}">
             <div class="company__info">
                 <div class="company__item">
-                    <p><img src="{% static 'theme_first/img/smartphone.png' %}"> +38 (063) 010-17-97</p>
+                    <p><span class="icons-header" style="background-image: url('{% static 'theme_first/img/smartphone.png' %}')"></span> +38 (063) 010-17-97</p>
                 </div>
                 <div class="company__item">
-                    <p><img src="{% static 'theme_first/img/message-closed-envelope.png' %}"> evgeniymeo@gmail.com</p>
+                    <p><span class="icons-header" style="background-image: url('{% static 'theme_first/img/message-closed-envelope.png' %}')"></span> evgeniymeo@gmail.com</p>
                 </div>
                 <div class="company__item">
-                    <p><img src="{% static 'theme_first/img/web-link.png' %}"> www.gofriends.pro</p>
+                    <p><span class="icons-header" style="background-image: url('{% static 'theme_first/img/web-link.png' %}')"></span> www.gofriends.pro</p>
                 </div>
             </div>
         </div>
@@ -100,15 +100,29 @@
 
 
 <style>
+.header {
+    margin-bottom: 20px;
+}
 .green {
     color: #00f4c7;
 }
 .avatar {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     border: 1px solid #dee;
     margin-top: 24px;
+}
+.icons-header {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 7px;
+    margin-right: 10px;
 }
 .logo {
     width: 160px;
