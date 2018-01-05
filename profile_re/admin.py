@@ -1,12 +1,12 @@
 from django.contrib import admin
 from .models import Profile, HobieUser, Hobie
 from skills_re.models import SkillLevel, UserLanguageLevel
-from projects_re.models import Project
+from projects_re.models import Company
 
 
-class ProjectInline(admin.TabularInline):
+class CompanyInline(admin.TabularInline):
     extra = 0
-    model = Project
+    model = Company
 
 
 class SkillLevelInline(admin.TabularInline):
@@ -37,4 +37,4 @@ class HobieAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'created',)
-    inlines = (SkillLevelInline, UserLanguageLevelInline, HobieUserInline, ProjectInline)
+    inlines = (SkillLevelInline, UserLanguageLevelInline, HobieUserInline, CompanyInline)

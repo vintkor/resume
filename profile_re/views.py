@@ -12,4 +12,11 @@ class UsersList(ListView):
 class UserDetail(DetailView):
     template_name = 'profile_re/user.html'
     context_object_name = 'user'
-    model = User
+
+    def get_object(self, queryset=None):
+        return User.objects.select_related('profile').prefetch_related(
+            'profile__skilllevel_set',
+            'profile__userlanguagelevel_set',
+            'profile__hobieuser_set',
+            'profile__company_set',
+        ).get(id=self.kwargs.get('pk'))

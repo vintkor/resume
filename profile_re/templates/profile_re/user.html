@@ -1,5 +1,106 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>Hello {{ user }} detail</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="single__name">{{ user.get_full_name }}</h1>
+            <p>{{ user.profile.position }}</p>
+            <img class="avatar" src="{% if user.image %}{{ user.image.url }}{% else %}http://www.geeksinc.net/wp-content/uploads/2016/05/home-user-icon-1.png{% endif %}">
+        </div>
+        <div class="col-md-4" style="text-align: right;">
+            <img src="{% static 'theme_first/img/logo.png' %}">
+            <div class="company__info">
+                <div class="company__item">
+                    <p><img src="{% static 'theme_first/img/smartphone.png' %}"> +38 (063) 010-17-97</p>
+                </div>
+                <div class="company__item">
+                    <p><img src="{% static 'theme_first/img/message-closed-envelope.png' %}"> evgeniymeo@gmail.com</p>
+                </div>
+                <div class="company__item">
+                    <p><img src="{% static 'theme_first/img/web-link.png' %}"> www.gofriends.pro</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-5">
+            <h3>skills</h3>
+            <table>
+                {% for skill in user.profile.skilllevel_set.all %}
+                <tr>
+                    <td>{{ skill.skill }}</td>
+                    <td>{{ skill.level }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <h3>LANGUAGES</h3>
+            <table>
+                {% for lang in user.profile.userlanguagelevel_set.all %}
+                <tr>
+                    <td>{{ lang.language }} - {{ lang.level }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+            <h3>hobbies</h3>
+            <table>
+                <p>
+                    {% for hobie in user.profile.hobieuser_set.all %}
+                        {{ hobie.hobie }}{% if forloop.last %}{% else %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </table>
+        </div>
+        <div class="col-md-7">
+            <div class="center__info">
+                <h2>Education</h2>
+                <hr>
+                <p>{{ user.profile.education | safe }}</p>
+            </div>
+            <div class="center__info">
+                <h2>About</h2>
+                <hr>
+                <p>{{ user.profile.about | safe }}</p>
+            </div>
+            <div class="center__info">
+                <h2>work Experience</h2>
+                <hr>
+                {% for comp in user.profile.company_set.all %}
+                <div class="company_set">
+                    {{ comp.title }}
+                    <hr>
+                    {% for proj in comp.project_set.all %}
+                    <div class="projects_set">
+                        <h4>{{ proj.title }}</h4>
+                        <div>{{ proj.description }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .avatar {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #dee;
+    }
+</style>
+
+
 {% endblock content %}

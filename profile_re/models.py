@@ -38,7 +38,7 @@ class Hobie(AbstractDateModel):
 
 
 class HobieUser(AbstractDateModel):
-    user = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     hobie = models.ForeignKey(Hobie, on_delete=models.CASCADE)
 
     def __str__(self):

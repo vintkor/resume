@@ -4,6 +4,7 @@ from profile_re.models import Profile
 
 
 class Company(AbstractDateModel):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     date_start = models.DateField()
     date_finish = models.DateField(blank=True, null=True)
@@ -15,10 +16,9 @@ class Company(AbstractDateModel):
 
 
 class Project(AbstractDateModel):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField()
 
     def __str__(self):
-        return '{} {}'.format(self.user, self.title)
+        return '{} {} {}'.format(self.company.user, self.company, self.title)
