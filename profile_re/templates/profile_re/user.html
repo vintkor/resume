@@ -83,6 +83,7 @@
                 <div class="company_set">
                     <h5 style="font-size: 1.2em; font-style: italic"><strong>{{ comp.title }}</strong> <small class="dates">{{ comp.date_start }} - {% if comp.date_finish %}{{ comp.date_finish }}{% else %}present{% endif %}</small></h5>
                     <p><strong>{{ comp.position }}</strong></p>
+                    <div style="text-align: justify">{{ comp.description | safe }}</div>
 
                     <h4 class="green text-uppercase" style="margin: 20px 0;">Projects</h4>
 
