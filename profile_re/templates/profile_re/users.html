@@ -1,5 +1,9 @@
 {% extends 'theme_first/base.html' %}
 
 {% block content %}
-    <h1>Hello {{ user }}</h1>
+    <ul>
+        {% for user in users %}
+            <li><a href="{{ user.profile.get_absolute_url }}">{{ user.get_full_name }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

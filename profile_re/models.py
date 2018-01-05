@@ -4,6 +4,7 @@ from django.utils.crypto import get_random_string
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from resume.basemodel import AbstractDateModel
+from django.urls import reverse
 
 
 def set_profile_image_name(instanse, filename):
@@ -24,6 +25,9 @@ class Profile(AbstractDateModel):
         if self.user.get_full_name() == '':
             return self.user.username
         return self.user.get_full_name()
+
+    def get_absolute_url(self):
+        return reverse('user', args=[str(self.id)])
 
 
 class Hobie(AbstractDateModel):
