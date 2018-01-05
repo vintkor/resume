@@ -73,23 +73,26 @@
             <div class="center__info">
                 <h3 class="green text-uppercase">About</h3>
                 <hr>
-                <p>{{ user.profile.about | safe }}</p>
+                <div style="text-align: justify">{{ user.profile.about | safe }}</div>
             </div>
             <div class="center__info">
                 <h3 class="green text-uppercase">work Experience</h3>
                 <hr>
                 {% for comp in user.profile.company_set.all %}
                 <div class="company_set">
-                    <p style="font-size: 1.2em;"><strong>{{ comp.title }}</strong></p>
-                    <p class="dates">{{ comp.date_start }} - {% if comp.date_finish %}{{ comp.date_finish }}{% else %}present{% endif %}</p>
+                    <h5 style="font-size: 1.2em; font-style: italic"><strong>{{ comp.title }}</strong> <small class="dates">{{ comp.date_start }} - {% if comp.date_finish %}{{ comp.date_finish }}{% else %}present{% endif %}</small></h5>
                     <p><strong>{{ comp.position }}</strong></p>
+
+                    <h4 class="green text-uppercase" style="margin: 20px 0;">Projects</h4>
+
                     {% for proj in comp.project_set.all %}
                     <div class="projects_set">
-                        <h4 class="green text-uppercase">{{ proj.title }}</h4>
-                        <div>{{ proj.description }}</div>
+                        <h4 class="text-uppercase">{{ proj.title }}</h4>
+                        <div style="text-align: justify">{{ proj.description | safe }}</div>
                     </div>
                     {% endfor %}
                 </div>
+                <hr>
                 {% endfor %}
             </div>
         </div>
@@ -139,6 +142,10 @@
 .center__info h3 {
     margin-bottom: 30px;
 }
+{#.company_set {#}
+{#    margin-bottom: 30px;#}
+{#    border-bottom: 1px solid #dee;#}
+{#}#}
 </style>
 
 

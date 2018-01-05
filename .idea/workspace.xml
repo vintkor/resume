@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37aaa9d2-7b75-4202-b3e2-a794178d3c0f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile_re/models.py" afterPath="$PROJECT_DIR$/profile_re/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile_re/templates/profile_re/user.html" afterPath="$PROJECT_DIR$/profile_re/templates/profile_re/user.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects_re/models.py" afterPath="$PROJECT_DIR$/projects_re/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resume/settings.py" afterPath="$PROJECT_DIR$/resume/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resume/urls.py" afterPath="$PROJECT_DIR$/resume/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,50 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/profile_re/templates/profile_re/user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="321">
+              <caret line="75" column="20" lean-forward="false" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
               <folding>
                 <element signature="e#800#878#0#HTML" expanded="true" />
                 <element signature="e#1028#1119#0#HTML" expanded="true" />
                 <element signature="e#1270#1346#0#HTML" expanded="true" />
-                <element signature="e#3241#3266#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resume/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="137" column="33" lean-forward="false" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resume/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#630#662#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projects_re/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#2930#2957#0#HTML" expanded="true" />
+                <element signature="e#3274#3318#0#HTML" expanded="true" />
+                <element signature="e#3605#3628#0#HTML" expanded="true" />
+                <element signature="e#3852#3879#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,12 +58,12 @@
         <option value="$PROJECT_DIR$/projects_re/admin.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/profile_re/templates/profile_re/users.html" />
-        <option value="$PROJECT_DIR$/profile_re/templates/profile_re/user.html" />
         <option value="$PROJECT_DIR$/resume/settings.py" />
         <option value="$PROJECT_DIR$/resume/urls.py" />
         <option value="$PROJECT_DIR$/profile_re/models.py" />
         <option value="$PROJECT_DIR$/skills_re/models.py" />
         <option value="$PROJECT_DIR$/projects_re/models.py" />
+        <option value="$PROJECT_DIR$/profile_re/templates/profile_re/user.html" />
       </list>
     </option>
   </component>
@@ -511,13 +475,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25716332" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25716332" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11199365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -657,32 +622,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profile_re/templates/profile_re/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="e#800#878#0#HTML" expanded="true" />
-            <element signature="e#1028#1119#0#HTML" expanded="true" />
-            <element signature="e#1270#1346#0#HTML" expanded="true" />
-            <element signature="e#3241#3266#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resume/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="137" column="33" lean-forward="false" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/profile_re/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skills_re/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#28#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects_re/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -696,22 +660,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/skills_re/models.py">
+    <entry file="file://$PROJECT_DIR$/resume/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="606">
+          <caret line="137" column="33" lean-forward="false" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects_re/models.py">
+    <entry file="file://$PROJECT_DIR$/profile_re/templates/profile_re/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="321">
+          <caret line="75" column="20" lean-forward="false" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#800#878#0#HTML" expanded="true" />
+            <element signature="e#1028#1119#0#HTML" expanded="true" />
+            <element signature="e#1270#1346#0#HTML" expanded="true" />
+            <element signature="e#2930#2957#0#HTML" expanded="true" />
+            <element signature="e#3274#3318#0#HTML" expanded="true" />
+            <element signature="e#3605#3628#0#HTML" expanded="true" />
+            <element signature="e#3852#3879#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
