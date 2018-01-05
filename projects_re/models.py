@@ -12,7 +12,7 @@ class Company(AbstractDateModel):
     description = models.TextField()
 
     def __str__(self):
-        return self.title
+        return '{} {}'.format(self.title, self.user)
 
 
 class Project(AbstractDateModel):
