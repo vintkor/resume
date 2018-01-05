@@ -1,5 +1,6 @@
 {% extends 'theme_first/base.html' %}
 {% load static %}
+{% load resume_tags %}
 
 {% block content %}
 
@@ -37,7 +38,7 @@
                 {% for skill in user.profile.skilllevel_set.all %}
                 <tr>
                     <td>{{ skill.skill }}</td>
-                    <td>{{ skill.level }}</td>
+                    <td style="text-align: right">{% autoescape off %}{% make_star skill.level %}{% endautoescape %}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -68,7 +69,7 @@
             <div class="center__info">
                 <h3 class="green text-uppercase">Education</h3>
                 <hr>
-                <p>{{ user.profile.education | safe }}</p>
+                <div style="text-align: justify">{{ user.profile.education | safe }}</div>
             </div>
             <div class="center__info">
                 <h3 class="green text-uppercase">About</h3>
@@ -103,6 +104,17 @@
 
 
 <style>
+.single__name {
+    margin-top: 70px;
+}
+.fa {
+    color: #e2e2e2;
+    margin-left: 3px;
+    font-size: .8em;
+}
+.fa.checked {
+    color: #00f4c7;
+}
 .header {
     margin-bottom: 20px;
 }
