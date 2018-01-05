@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 from resume.basemodel import AbstractDateModel
 from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 def set_profile_image_name(instanse, filename):
@@ -18,8 +19,8 @@ class Profile(AbstractDateModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(verbose_name='Фотография', upload_to=set_profile_image_name, blank=True, null=True, default=None)
     position = models.CharField(verbose_name='Должность', max_length=255)
-    education = models.TextField(verbose_name='Образование')
-    about = models.TextField(verbose_name='О себе')
+    education = RichTextUploadingField(verbose_name='Образование')
+    about = RichTextUploadingField(verbose_name='О себе')
 
     def __str__(self):
         if self.user.get_full_name() == '':
