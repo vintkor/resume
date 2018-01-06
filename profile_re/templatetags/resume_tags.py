@@ -7,7 +7,7 @@ register = template.Library()
 @register.simple_tag
 def make_star(level):
     stars = []
-    for index, i in enumerate(range(11)):
+    for index, i in enumerate(range(10)):
         if index <= int(level):
             stars.append('<span class="fa fa-circle checked"></span>')
         else:

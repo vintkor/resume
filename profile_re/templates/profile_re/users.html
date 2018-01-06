@@ -1,9 +1,20 @@
 {% extends 'theme_first/base.html' %}
 
 {% block content %}
-    <ul>
-        {% for user in users %}
-            <li><a href="{{ user.profile.get_absolute_url }}">{{ user.get_full_name }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-uppercase text-center" style="margin-bottom: 20px;"><span class="green">Go</span>Friends Developers</h1>
+                <div class="list-group">
+                    {% for user in users %}
+                        <a class="list-group-item" href="{{ user.profile.get_absolute_url }}">
+                            {{ user.get_full_name }}
+                            <span class="pull-right">{{ user.profile.position }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock content %}
