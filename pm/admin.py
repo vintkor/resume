@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Client, Project, Milestone, Module, Task
+from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 
 
 class ProjectInline(admin.StackedInline):
@@ -8,19 +9,19 @@ class ProjectInline(admin.StackedInline):
     model = Project
 
 
-class MilestoneInline(admin.StackedInline):
+class MilestoneInline(SortableInlineAdminMixin, admin.StackedInline):
     exclude = ('',)
     extra = 0
     model = Milestone
 
 
-class ModuleInline(admin.StackedInline):
+class ModuleInline(SortableInlineAdminMixin, admin.StackedInline):
     exclude = ('',)
     extra = 0
     model = Module
 
 
-class TaskInline(admin.StackedInline):
+class TaskInline(SortableInlineAdminMixin, admin.TabularInline):
     exclude = ('',)
     extra = 0
     model = Task
@@ -37,18 +38,18 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 @admin.register(Milestone)
-class MilestoneAdmin(admin.ModelAdmin):
+class MilestoneAdmin(SortableAdminMixin, admin.ModelAdmin):
     inlines = (ModuleInline,)
 
 
 @admin.register(Module)
-class ModuleAdmin(admin.ModelAdmin):
+class ModuleAdmin(SortableAdminMixin, admin.ModelAdmin):
     inlines = (TaskInline,)
     list_editable = ('rate_per_hour',)
     list_display = ('__str__', 'rate_per_hour')
 
 
 @admin.register(Task)
-class TaskAdmin(admin.ModelAdmin):
+class TaskAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('title', 'time')
     list_editable = ('time',)

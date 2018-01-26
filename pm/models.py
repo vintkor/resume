@@ -54,10 +54,12 @@ class Milestone(AbstractDateModel):
     title = models.PositiveSmallIntegerField()
     date_start = models.DateField(blank=True, null=True)
     date_finish = models.DateField(blank=True, null=True)
+    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     class Meta:
         verbose_name = 'Milestone'
         verbose_name_plural = 'Milestones'
+        ordering = ('my_order',)
 
     def __str__(self):
         return '{} > Milestone #{} ({} - {})'.format(self.project, self.title, self.date_start, self.date_finish)
@@ -68,10 +70,12 @@ class Module(AbstractDateModel):
     title = models.CharField(max_length=255)
     desc = RichTextUploadingField(blank=True, null=True)
     rate_per_hour = models.PositiveSmallIntegerField(default=25)
+    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     class Meta:
         verbose_name = 'Module'
         verbose_name_plural = 'Modules'
+        ordering = ('my_order',)
 
     def __str__(self):
         return '{} > {}'.format(self.title, self.milestone.project)
@@ -94,10 +98,12 @@ class Task(AbstractDateModel):
     title = models.CharField(max_length=255)
     desc = RichTextUploadingField(blank=True, null=True)
     time = models.PositiveSmallIntegerField(default=0)
+    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     class Meta:
         verbose_name = 'Task'
         verbose_name_plural = 'Tasks'
+        ordering = ('my_order',)
 
     def __str__(self):
         return '{} > {}'.format(self.title, self.module)
