@@ -45,8 +45,8 @@ class MilestoneAdmin(SortableAdminMixin, admin.ModelAdmin):
 @admin.register(Module)
 class ModuleAdmin(SortableAdminMixin, admin.ModelAdmin):
     inlines = (TaskInline,)
-    list_editable = ('rate_per_hour',)
-    list_display = ('__str__', 'rate_per_hour')
+    list_editable = ('rate_per_hour', 'milestone',)
+    list_display = ('__str__', 'rate_per_hour', 'milestone',)
 
 
 @admin.register(Task)
