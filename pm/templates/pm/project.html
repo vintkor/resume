@@ -1,0 +1,84 @@
+{% extends 'theme_first/base.html' %}
+
+{% block title %}{{ project.title }}{% endblock title %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-uppercase text-center" style="margin-bottom: 20px;"><span class="green">Go</span>Friends</h1>
+                <h2 class="text-uppercase text-center" style="margin-bottom: 20px;">
+                    <span href="{% url 'project-desc' project.id %}" class="ajax-popup-link" style="cursor: pointer;">{{ project.title }}</span>
+                    <small href="{% url 'client-desc' project.client.id %}" class="ajax-popup-link" style="cursor: pointer;">{{ project.client }}</small>
+                </h2>
+                <table class="table table-hover table-bordered">
+                    <tbody>
+                        {% for milestone in project.milestone_set.all %}
+                            <tr>
+                                <td colspan="4" style="background: #e0e0e0;">
+                                    <strong>Майлстоун #{{ milestone.title }}</strong>
+                                    <span class="pull-right">{{ milestone.date_start }} - {{ milestone.date_finish }}</span>
+                                </td>
+                            </tr>
+                            {% for module in milestone.module_set.all %}
+                                <tr style="background: #f1f1f1;">
+                                    <td colspan="3"><span href="{% url 'module-desc' module.id %}" class="ajax-popup-link" style="cursor: pointer;">Модуль - {{ module.title }}</span></td>
+                                    <td class="text-center"><strong>${{ module.rate_per_hour }}/ч</strong></td>
+                                </tr>
+                                {% for task in module.task_set.all %}
+                                    <tr>
+                                        <td></td>
+                                        <td><span href="{% url 'task-desc' task.id %}" class="ajax-popup-link" style="cursor: pointer;">{{ task.title }}</span></td>
+                                        <td class="text-center">{{ task.time }} ч</td>
+                                        <td class="text-center">${{ task.get_total_for_task }}</td>
+                                    </tr>
+                                {% endfor %}
+                                <tr style="font-weight: bold;">
+                                    <td colspan="2">Итого по модулю</td>
+                                    <td class="text-center">{{ module.get_total_time }} ч</td>
+                                    <td class="text-center">${{ module.get_total_amount }}</td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="4" style="height: 30px; border-left-color: #fff; border-right-color: #fff; background: #fff;"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr style="background: #f6f6f6;">
+                            <th colspan="2">Итого по проекту {{ project.title }}</th>
+                            <th class="text-center">{{ project.get_total_time }} ч</th>
+                            <th class="text-center">${{ project.get_total_amount }}</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="test-popup" class="white-popup mfp-hide animated flipInX">
+        Popup content
+    </div>
+
+    <style>
+        .mfp-content {
+            position: relative;
+            background: #FFF;
+            padding: 20px;
+            width: auto;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+    </style>
+
+    <script>
+        $('.ajax-popup-link').magnificPopup({
+            type: 'ajax'
+        });
+    </script>
+
+{% endblock content %}
