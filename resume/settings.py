@@ -63,7 +63,7 @@ ROOT_URLCONF = 'resume.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates', 'resume/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
