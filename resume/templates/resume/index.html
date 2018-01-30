@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoFriends.pro</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+</head>
+<body>
+    <div class="flex">
+        <div class="wrapper">
+            <h1>www.<span>Go</span>Friends.pro</h1>
+            <form action="">
+                <!-- <div> -->
+                    <label for="check1">Быстро</label>
+                    <input id="check1" type="checkbox" class="switch_1">
+                <!-- </div> -->
+                <!-- <div> -->
+                    <label for="check2">Качественно</label>
+                    <input id="check2" type="checkbox" class="switch_1">
+                <!-- </div> -->
+                <!-- <div> -->
+                    <label for="check3">Дёшево</label>
+                    <input id="check3" type="checkbox" class="switch_1">
+                <!-- </div> -->
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var selector = 'input[type="checkbox"]';
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function countSwitches() {
+
+    var totalCheckboxes = $(selector);
+    var enabledCheckboxes = $(selector + ':checked');
+
+    return {
+        total: totalCheckboxes.length,
+        enabled: enabledCheckboxes.length
+    }
+}
+
+function getRandomSwitch(collection, excludeElement) {
+
+    var idx = getRandomInt(0, collection.length - 1);
+    var elem = collection.get(idx);
+
+    if (elem === excludeElement) {
+        idx = (idx + 1) % collection.length;
+        elem = collection.get(idx);
+    }
+
+    return elem;
+}
+
+$(document).ready(function() {
+
+    var collection = $(selector);
+
+    collection.click(function(e) {
+
+        var summary = countSwitches();
+
+        if (summary.enabled < summary.total) {
+            return;
+        }
+
+        getRandomSwitch(collection, $(this).get(0)).checked = false;
+    });
+});
+
+    </script>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    .flex {
+        display: flex;
+        background: #f6f6f6;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .wrapper {
+        padding: 50px;
+        background: #dee;
+        border-radius: 5px;
+        border: 1px solid rgba(0,0,0,.02);
+        box-shadow: 0 0 30px rgba(0,0,0,.07);
+    }
+    h1 {
+        font-size: 70px;
+        margin-bottom: 50px;
+    }
+    h1>span {
+        color: #397528;
+    }
+    p {
+        font-size: 18px;
+    }
+
+
+input[type="checkbox"].switch_1{
+    font-size: 30px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    width: 3.5em;
+    height: 1.5em;
+    background: #ddd;
+    border-radius: 3em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+
+  input[type="checkbox"].switch_1:checked{
+    background: #0ebeff;
+  }
+
+  input[type="checkbox"].switch_1:after{
+    position: absolute;
+    content: "";
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+            box-shadow: 0 0 .25em rgba(0,0,0,.3);
+    -webkit-transform: scale(.7);
+            transform: scale(.7);
+    left: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+
+  input[type="checkbox"].switch_1:checked:after{
+    left: calc(100% - 1.5em);
+  }
+
+label {
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    top: -15px;
+}
+input {
+    margin-right: 40px;
+}
+input:last-child {
+    margin-right: 0;
+}
+    </style>
+</body>
+</html>
