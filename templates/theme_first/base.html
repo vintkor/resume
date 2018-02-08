@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container translate">
     <div class="row">
         <div class="col-md-3 col-md-offset-9">
             <form action="{% url 'set_language' %}" method="post" role="form" class="form">
@@ -96,6 +96,9 @@
 }
 
 @media print {
+    .translate {
+        display: none;
+    }
   .container {
     width: 1100px;
   }
