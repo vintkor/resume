@@ -26,4 +26,5 @@ urlpatterns = [
     path('users/', include('profile_re.urls')),
     path('projects/', include('pm.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
