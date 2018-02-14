@@ -48,6 +48,9 @@ class Project(AbstractDateModel):
                     amount += task.get_total_for_task()
         return amount
 
+    def get_total_money(self):
+        return sum([i.amount for i in self.money_set.all()])
+
 
 class Milestone(AbstractDateModel):
     project = models.ForeignKey(Project, on_delete=None)
@@ -110,3 +113,15 @@ class Task(AbstractDateModel):
 
     def get_total_for_task(self):
         return self.module.rate_per_hour * self.time
+
+
+class Money(AbstractDateModel):
+    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Money'
+        verbose_name_plural = 'Money'
+
+    def __str__(self):
+        return '{} - {}'.format(self.amount, self.project)

@@ -1,15 +1,16 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class UsersList(ListView):
+class UsersList(LoginRequiredMixin, ListView):
     template_name = 'profile_re/users.html'
     context_object_name = 'users'
     model = User
 
 
-class UserDetail(DetailView):
+class UserDetail(LoginRequiredMixin, DetailView):
     template_name = 'profile_re/user.html'
     context_object_name = 'user'
 

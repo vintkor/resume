@@ -5,3 +5,21 @@
     <h3>Contacts</h3>
 <div>{{ contacts | safe }}</div>
 {% endif %}
+
+
+{% if money %}
+    {% load pm_tags %}
+    <h3>Money</h3>
+    <ul class="list-group">
+        {% for i in money %}
+            <li class="list-group-item">
+                <span style="font-weight: bold">{{ i.amount }}</span>
+                <span class="pull-right">{{ i.created }}</span>
+            </li>
+        {% endfor %}
+        {% minus project.get_total_money project.get_total_amount as debt %}
+        <li class="list-group-item">Всего оплочено {{ project.get_total_money }}</li>
+        <li class="list-group-item">Всего по проекту {{ project.get_total_amount }}</li>
+        <li class="list-group-item {% if debt < 0 %}list-group-item-danger{% else %}list-group-item-success{% endif %}">Долг клиента {{ debt }}</li>
+    </ul>
+{% endif %}

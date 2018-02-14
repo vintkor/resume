@@ -1,15 +1,16 @@
 from .models import Project, Task, Module, Client
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class ProjectListView(ListView):
+class ProjectListView(LoginRequiredMixin, ListView):
     template_name = 'pm/projects.html'
     context_object_name = 'projects'
     model = Project
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(LoginRequiredMixin, DetailView):
     template_name = 'pm/project.html'
     context_object_name = 'project'
 
@@ -47,9 +48,11 @@ class ProjectView(TaskView):
     template_name = 'pm/ajax-container.html'
 
     def get(self, request, pk):
-        project = Project.objects.get(pk=pk)
+        project = Project.objects.prefetch_related('money_set').get(pk=pk)
         context = {
             'desc': project.desc,
+            'money': project.money_set.all,
+            'project': project,
         }
         return render(request, self.template_name, context)
 

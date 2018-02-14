@@ -1,6 +1,11 @@
 from django.contrib import admin
-from .models import Client, Project, Milestone, Module, Task
+from .models import Client, Project, Milestone, Module, Task, Money
 from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
+
+
+class MoneyInline(admin.TabularInline):
+    extra = 0
+    model = Money
 
 
 class ProjectInline(admin.StackedInline):
@@ -27,6 +32,12 @@ class TaskInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Task
 
 
+@admin.register(Money)
+class MoneyAdmin(admin.ModelAdmin):
+    list_display = ('project', 'amount', 'created')
+    list_filter = ('project',)
+
+
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
     inlines = (ProjectInline,)
@@ -34,7 +45,7 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    inlines = (MilestoneInline,)
+    inlines = (MilestoneInline, MoneyInline, )
 
 
 @admin.register(Milestone)
