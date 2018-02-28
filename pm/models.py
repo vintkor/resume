@@ -67,6 +67,12 @@ class Milestone(AbstractDateModel):
     def __str__(self):
         return '{} > Milestone #{} ({} - {})'.format(self.project, self.title, self.date_start, self.date_finish)
 
+    def is_done(self):
+        modules = self.module_set
+        if modules.all().count() == len([i for i in modules.all() if i.is_done()]):
+            return True
+        return False
+
 
 class Module(AbstractDateModel):
     milestone = models.ForeignKey(Milestone, on_delete=None)
@@ -95,6 +101,12 @@ class Module(AbstractDateModel):
             amount += task.get_total_for_task()
         return amount
 
+    def is_done(self):
+        tasks = self.task_set
+        if tasks.all().count() == tasks.filter(is_done=True).count():
+            return True
+        return False
+
 
 class Task(AbstractDateModel):
     module = models.ForeignKey(Module, on_delete=None)
@@ -102,6 +114,7 @@ class Task(AbstractDateModel):
     desc = RichTextUploadingField(blank=True, null=True)
     time = models.PositiveSmallIntegerField(default=0)
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
+    is_done = models.BooleanField(default=False, verbose_name='Выполнено')
 
     class Meta:
         verbose_name = 'Task'

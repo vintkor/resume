@@ -20,25 +20,25 @@
                     <tbody>
                         {% for milestone in project.milestone_set.all %}
                             <tr>
-                                <td colspan="4" style="background: #e0e0e0;">
+                                <td colspan="4" class="{% if milestone.is_done %}success{% else %}info{% endif %}">
                                     <strong>{% trans 'Milestone' %} #{{ milestone.title }}</strong>
                                     <span class="pull-right">{{ milestone.date_start }} - {{ milestone.date_finish }}</span>
                                 </td>
                             </tr>
                             {% for module in milestone.module_set.all %}
-                                <tr style="background: #f1f1f1;">
+                                <tr style="background: #f1f1f1;" class="{% if module.is_done %}success{% endif %}">
                                     <td colspan="3"><span href="{% url 'module-desc' module.id %}" class="ajax-popup-link" style="cursor: pointer;">{% trans 'Module' %} - {{ module.title }}</span></td>
                                     <td class="text-center"><strong>${{ module.rate_per_hour }}/ч</strong></td>
                                 </tr>
                                 {% for task in module.task_set.all %}
-                                    <tr>
+                                    <tr class="{% if task.is_done %}success{% endif %}">
                                         <td></td>
                                         <td><span href="{% url 'task-desc' task.id %}" class="ajax-popup-link" style="cursor: pointer;">{{ task.title }}</span></td>
                                         <td class="text-center">{{ task.time }} {% trans 'h' %}</td>
                                         <td class="text-center">${{ task.get_total_for_task }}</td>
                                     </tr>
                                 {% endfor %}
-                                <tr style="font-weight: bold;">
+                                <tr style="font-weight: bold;" class="{% if milestone.is_done %}success{% endif %}">
                                     <td colspan="2">{% trans 'Module in total' %}</td>
                                     <td class="text-center">{{ module.get_total_time }} ч</td>
                                     <td class="text-center">${{ module.get_total_amount }}</td>
