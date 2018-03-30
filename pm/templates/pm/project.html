@@ -48,14 +48,12 @@
                                 <td colspan="4" style="height: 30px; border-left-color: #fff; border-right-color: #fff; background: #fff;"></td>
                             </tr>
                         {% endfor %}
-                    </tbody>
-                    <tfoot>
                         <tr style="background: #f6f6f6;">
                             <th colspan="2">{% blocktrans with proj=project.title %}Project {{ proj }} in total{% endblocktrans %}</th>
                             <th class="text-center">{{ project.get_total_time }} ч</th>
                             <th class="text-center">${{ project.get_total_amount }}</th>
                         </tr>
-                    </tfoot>
+                    </tbody>
                 </table>
             </div>
         </div>
