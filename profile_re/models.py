@@ -28,7 +28,7 @@ class Profile(AbstractDateModel):
         return self.user.get_full_name()
 
     def get_absolute_url(self):
-        return reverse('user', args=[str(self.id)])
+        return reverse('user', args=[str(self.user.id)])
 
 
 class Hobie(AbstractDateModel):

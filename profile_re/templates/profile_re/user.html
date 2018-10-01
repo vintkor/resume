@@ -38,7 +38,7 @@
                 {% for skill in user.profile.skilllevel_set.all %}
                 <tr>
                     <td>{{ skill.skill }}</td>
-                    <td style="text-align: right">{% autoescape off %}{% make_star skill.level %}{% endautoescape %}</td>
+                    <td style="text-align: right; min-width: 150px;">{% autoescape off %}{% make_star skill.level %}{% endautoescape %}</td>
                 </tr>
                 {% endfor %}
             </table>
